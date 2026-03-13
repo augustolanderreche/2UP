@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #dbf700;
+  --color-bg: #07090b;
+  --color-surface: #0f1318;
+  --color-soft: #aab4be;
+
+  --shadow-glow: 0 0 40px rgba(219, 247, 0, 0.18);
+  --shadow-glow-lg: 0 0 80px rgba(219, 247, 0, 0.16);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+}
+
+.stroke-text {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.18);
+  color: transparent;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.mask-fade {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.radial-brand {
+  background: radial-gradient(circle at center, rgba(219, 247, 0, 0.18), rgba(219, 247, 0, 0) 60%);
+}
+
+.glow-shadow {
+  box-shadow: var(--shadow-glow);
+}
+
+.glow-shadow-lg {
+  box-shadow: var(--shadow-glow-lg);
+}
+
+.floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+.floaty-delay {
+  animation: floaty 6s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+@keyframes floaty {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

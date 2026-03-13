@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2up - Software Factory</title>
+  <link href="./dist/output.css" rel="stylesheet" />
+  <link rel="icon" href="/assets/icon-2up.png">
+</head>
+<body class="bg-bg text-white antialiased selection:bg-brand selection:text-black">
+  <!-- Fondo global -->
+  <div class="pointer-events-none fixed inset-0 overflow-hidden">
+    <div class="radial-brand absolute -top-32 left-1/2 h-120 w-120 -translate-x-1/2 rounded-full blur-3xl opacity-80"></div>
+    <div class="grid-bg absolute inset-0 opacity-[0.05]"></div>
+  </div>
+
+   <!-- NAV -->
+  <header class="fixed top-0 z-50 w-full border-b border-white/10 bg-black/35 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <a href="#inicio" class="flex items-center gap-3">
+        <img src="assets/cropped-logo.png" alt="logo 2up" >
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm text-white/70 md:flex">
+        <a href="#servicios" class="transition hover:text-brand">Servicios</a>
+        <a href="#proceso" class="transition hover:text-brand">Proceso</a>
+        <a href="#clientes" class="transition hover:text-brand">Experiencia</a>
+        <a href="#casos" class="transition hover:text-brand">¿Por qué elegirnos?</a>
+        <a href="#contacto" class="transition hover:text-brand">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="rounded-full border border-brand px-4 py-2 text-sm font-semibold text-brand transition hover:bg-brand hover:text-black">
+        Hablemos
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <!-- HERO -->
+    <section id="inicio" class="relative overflow-hidden px-6 pb-16 pt-32 lg:px-8 lg:pb-24 lg:pt-40">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
+        <div>
+          <div class="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-brand">
+            Software Factory
+          </div>
+
+          <h1 class="max-w-3xl text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
+            Desarrollamos <span class="text-brand">software</span><br />
+            que impulsa<br />
+            negocios
+          </h1>
+
+          <p class="mt-6 max-w-xl text-base leading-7 text-soft sm:text-lg">
+            Productos digitales, automatización, integraciones y soluciones a medida
+            para empresas que necesitan avanzar con más velocidad, orden y escalabilidad.
+          </p>
+
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="#contacto" class="rounded-full bg-brand px-7 py-3 font-semibold text-black transition hover:glow-shadow">
+              Quiero una propuesta
+            </a>
+            <a href="#servicios" class="rounded-full border border-white/15 px-7 py-3 font-semibold text-white transition hover:border-brand hover:text-brand">
+              Ver servicios
+            </a>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">UX/UI</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">Apps a medida</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">Integraciones</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">Testing</span>
+          </div>
+        </div>
+
+        <div class="relative min-h-130">
+          <div class="hero-parallax absolute left-10 top-4 h-72 w-72 rounded-full bg-brand/15 blur-3xl"></div>
+
+          <div class="hero-parallax glow-shadow-lg absolute right-0 top-12 w-[85%] rounded-4xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
+            <div class="mb-4 flex items-center justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-[0.22em] text-white/40">Panel operativo</p>
+                <h3 class="mt-2 text-lg font-bold">2up Delivery Dashboard</h3>
+              </div>
+              <div class="rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
+                Live
+              </div>
+            </div>
+
+            <div class="grid gap-4 md:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-surface p-4">
+                <p class="text-sm text-white/50">Proyectos activos</p>
+                <p class="mt-3 text-4xl font-black text-brand">24</p>
+                <div class="mt-4 h-2 rounded-full bg-white/10">
+                  <div class="h-2 w-[76%] rounded-full bg-brand"></div>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-surface p-4">
+                <p class="text-sm text-white/50">Integraciones</p>
+                <p class="mt-3 text-4xl font-black">18</p>
+                <p class="mt-4 text-xs uppercase tracking-[0.2em] text-brand">Escalando</p>
+              </div>
+            </div>
+
+            <div class="mt-4 rounded-2xl border border-white/10 bg-surface p-4">
+              <div class="mb-4 flex items-center justify-between">
+                <p class="text-sm text-white/50">Roadmap de evolución</p>
+                <span class="text-xs text-white/40">Q2 / Q3</span>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between rounded-xl bg-white/5 px-4 py-3">
+                  <span class="text-sm">Discovery & arquitectura</span>
+                  <span class="text-sm font-semibold text-brand">100%</span>
+                </div>
+                <div class="flex items-center justify-between rounded-xl bg-white/5 px-4 py-3">
+                  <span class="text-sm">Integración core</span>
+                  <span class="text-sm font-semibold text-brand">82%</span>
+                </div>
+                <div class="flex items-center justify-between rounded-xl bg-white/5 px-4 py-3">
+                  <span class="text-sm">QA automatizado</span>
+                  <span class="text-sm font-semibold text-brand">68%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-parallax floaty glow-shadow absolute bottom-10 left-0 rounded-2xl border border-white/10 bg-surface/90 px-5 py-4 backdrop-blur-xl">
+            <p class="text-xs uppercase tracking-[0.22em] text-white/40">Enfoque</p>
+            <p class="mt-2 text-xl font-bold">Agilidad + proceso + calidad</p>
+          </div>
+
+          <div class="hero-parallax floaty-delay absolute bottom-0 right-10 rounded-2xl border border-brand/20 bg-brand/10 px-5 py-4">
+            <p class="text-xs uppercase tracking-[0.22em] text-brand/70">Resultado</p>
+            <p class="mt-2 text-xl font-bold text-brand">Soluciones listas para crecer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <!-- servicios -->
+    <section id="servicios" class="px-6 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-brand">Servicios</p>
+          <h2 class="mt-4 text-4xl font-black uppercase tracking-tight sm:text-5xl">
+            Soluciones pensadas<br />para mover negocio
+          </h2>
+          <p class="mt-5 text-lg text-soft">
+            Una propuesta comercial más clara, moderna y enfocada en valor.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="group rounded-[1.75rem] border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:glow-shadow">
+            <div class="mb-5 inline-flex rounded-2xl border border-brand/20 bg-brand/10 p-3 text-brand">01</div>
+            <h3 class="text-2xl font-bold">Software Factory</h3>
+            <p class="mt-4 leading-7 text-soft">
+              Equipos y desarrollo a medida para acelerar entregas con foco en calidad, negocio y escalabilidad.
+            </p>
+          </article>
+
+          <article class="group rounded-[1.75rem] border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:glow-shadow">
+            <div class="mb-5 inline-flex rounded-2xl border border-brand/20 bg-brand/10 p-3 text-brand">02</div>
+            <h3 class="text-2xl font-bold">UX/UI & Producto</h3>
+            <p class="mt-4 leading-7 text-soft">
+              Interfaces claras, modernas y alineadas con la experiencia real de uso y los objetivos de conversión.
+            </p>
+          </article>
+
+          <article class="group rounded-[1.75rem] border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:glow-shadow">
+            <div class="mb-5 inline-flex rounded-2xl border border-brand/20 bg-brand/10 p-3 text-brand">03</div>
+            <h3 class="text-2xl font-bold">Integraciones</h3>
+            <p class="mt-4 leading-7 text-soft">
+              Conectamos sistemas, procesos y herramientas para unificar operación, datos y trazabilidad.
+            </p>
+          </article>
+
+          <article class="group rounded-[1.75rem] border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:glow-shadow">
+            <div class="mb-5 inline-flex rounded-2xl border border-brand/20 bg-brand/10 p-3 text-brand">04</div>
+            <h3 class="text-2xl font-bold">Apps a Medida</h3>
+            <p class="mt-4 leading-7 text-soft">
+              Soluciones web, mobile y desktop construidas según la lógica real de cada empresa.
+            </p>
+          </article>
+
+          <article class="group rounded-[1.75rem] border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:glow-shadow">
+            <div class="mb-5 inline-flex rounded-2xl border border-brand/20 bg-brand/10 p-3 text-brand">05</div>
+            <h3 class="text-2xl font-bold">Testing & QA</h3>
+            <p class="mt-4 leading-7 text-soft">
+              Validación funcional, automatización, usabilidad y performance para entregar con más confianza.
+            </p>
+          </article>
+
+          <article class="group rounded-[1.75rem] border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:glow-shadow">
+            <div class="mb-5 inline-flex rounded-2xl border border-brand/20 bg-brand/10 p-3 text-brand">06</div>
+            <h3 class="text-2xl font-bold">Soporte Evolutivo</h3>
+            <p class="mt-4 leading-7 text-soft">
+              Acompañamiento continuo para mejorar, sostener y escalar productos ya implementados.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso" class="px-6 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl lg:p-12">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-brand">Proceso</p>
+          <h2 class="mt-4 text-4xl font-black uppercase tracking-tight sm:text-5xl">
+            Cómo trabajamos
+          </h2>
+          <p class="mt-5 text-lg text-soft">
+            Una dinámica clara, comercial y profesional.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-5">
+          <div class="rounded-3xl border border-white/10 bg-surface p-5">
+            <div class="text-sm font-semibold text-brand">01</div>
+            <h3 class="mt-3 text-xl font-bold">Discovery</h3>
+            <p class="mt-3 text-sm leading-6 text-soft">Entendemos negocio, fricciones y oportunidad.</p>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-surface p-5">
+            <div class="text-sm font-semibold text-brand">02</div>
+            <h3 class="mt-3 text-xl font-bold">Diseño</h3>
+            <p class="mt-3 text-sm leading-6 text-soft">Definimos experiencia, flujo y estructura visual.</p>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-surface p-5">
+            <div class="text-sm font-semibold text-brand">03</div>
+            <h3 class="mt-3 text-xl font-bold">Desarrollo</h3>
+            <p class="mt-3 text-sm leading-6 text-soft">Construimos con foco en calidad y velocidad.</p>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-surface p-5">
+            <div class="text-sm font-semibold text-brand">04</div>
+            <h3 class="mt-3 text-xl font-bold">QA</h3>
+            <p class="mt-3 text-sm leading-6 text-soft">Validamos estabilidad, uso y performance.</p>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-surface p-5">
+            <div class="text-sm font-semibold text-brand">05</div>
+            <h3 class="mt-3 text-xl font-bold">Evolución</h3>
+            <p class="mt-3 text-sm leading-6 text-soft">Escalamos producto, features e integraciones.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTES -->
+    <section id="clientes" class="px-6 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl lg:p-12">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-brand">Confianza</p>
+          <h2 class="mt-4 text-4xl font-black uppercase tracking-tight sm:text-5xl">
+            Experiencia con distintas industrias
+          </h2>
+          <p class="mt-5 text-lg text-soft">
+            Hemos recorrido un largo camino construyendo soluciones tecnológicas, estas son las empresas que confiaron en nosotros en diferentes momentos.
+          </p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-6">
+          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 01</div>
+          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 02</div>
+          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 03</div>
+          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 04</div>
+          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 05</div>
+          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 06</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="px-6 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-brand">Casos reales</p>
+          <h2 class="mt-4 text-4xl font-black uppercase tracking-tight sm:text-5xl">
+            ¿Por qué elegirnos?
+          </h2>
+          <p class="mt-5 text-lg text-soft">
+          </p>
+        </div>
+
+        <div class="mx-auto max-w-7xl rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl lg:p-12 grid gap-6 lg:grid-cols-4">
+          <article class="case-parallax group relative overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-7 transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:glow-shadow lg:col-span-3">
+            <div class="absolute right-0 top-0 h-48 w-48 rounded-full bg-brand/10 blur-3xl transition duration-500 group-hover:scale-125"></div>
+            <div class="relative z-10">
+              <h3 class="mt-0 text-3xl  uppercase  text-brand">En 2UP</h3>
+              <p class="mt-4 leading-7 text-soft">
+                Les ofrecemos un proceso de construcción de software ágil, escalable y robusto.
+              </p>
+              <P class="mt-4 leading-7 text-soft">
+                Contamos con distintos ambientes en nube donde producimos software de calidad basado en pipelines de despliegue y pruebas automatizados.
+              </P>
+              <P class="mt-4 leading-7 text-soft">
+                Tenemos un equipo de trabajo experimentado y aplicando las últimas tendencias del mercado en cuanto a avances tecnológicos.
+              </P>
+              <P class="mt-4 leading-7 text-soft">
+                Usamos las últimas herramientas disponibles para aplicar al proceso productivo, así podemos acelerar los tiempos y robustecer el producto entregable.
+              </P>
+          </article>
+          <article class="case-parallax relative overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-7 transition duration-300 hover:-translate-y-1 hover:border-brand/30 hover:glow-shadow lg:col-span-1 flex items-center justify-center">
+            <div>
+            <img src="assets/cropped-logo.png" alt="logo 2up" class="w-full max-w-45 opacity-20" >
+          </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAL -->
+    <section class="px-6 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid gap-6 lg:grid-cols-4">
+          <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Rápido</p>
+            <h3 class="mt-4 text-2xl font-bold">Entrega con foco</h3>
+            <p class="mt-4 leading-7 text-soft">Construimos con criterio técnico y visión comercial para avanzar más rápido.</p>
+          </article>
+
+          <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Escalable</p>
+            <h3 class="mt-4 text-2xl font-bold">Preparado para crecer</h3>
+            <p class="mt-4 leading-7 text-soft">Pensado para acompañar nuevos procesos, usuarios e integraciones futuras.</p>
+          </article>
+
+          <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand">A medida</p>
+            <h3 class="mt-4 text-2xl font-bold">Nada enlatado</h3>
+            <p class="mt-4 leading-7 text-soft">El producto se adapta al negocio y no al revés.</p>
+          </article>
+
+          <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Partner</p>
+            <h3 class="mt-4 text-2xl font-bold">Acompañamiento real</h3>
+            <p class="mt-4 leading-7 text-soft">Una relación cercana, clara y orientada a evolución continua.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="px-6 py-24 lg:px-8">
+      <div class="glow-shadow-lg mx-auto max-w-7xl overflow-hidden rounded-2xl border border-brand/20 bg-linear-to-br from-brand/10 via-white/5 to-transparent p-8 lg:p-12">
+        <div class="grid gap-10 lg:grid-cols-[1.1fr_.9fr]">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-brand">Contacto</p>
+            <h2 class="mt-4 text-4xl font-black uppercase tracking-tight sm:text-5xl">
+              ¿Tenés una idea,<br />un proceso para optimizar<br />o un producto para escalar?
+            </h2>
+            <p class="mt-6 max-w-xl text-lg leading-8 text-soft">
+              Hablemos y armemos una solución digital que combine negocio, tecnología y ejecución real.
+            </p>
+
+            <div class="mt-10 space-y-4">
+              <div class="rounded-2xl border border-white/10 bg-black/20 px-5 py-4">
+                <p class="text-sm text-white/45">Email</p>
+                <p class="mt-1 text-xl font-bold">here@2up.com.ar</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-black/20 px-5 py-4">
+                <p class="text-sm text-white/45">Teléfono</p>
+                <p class="mt-1 text-xl font-bold">+54 351 2422330</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[1.75rem] border border-white/10 bg-black/20 p-6 backdrop-blur-xl">
+            <p class="text-lg font-bold">Dejanos tus datos</p>
+            <div class="mt-6 space-y-4">
+              <input type="text" placeholder="Nombre" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand" />
+              <input type="email" placeholder="Email" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand" />
+              <input type="text" placeholder="Empresa" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand" />
+              <textarea rows="5" placeholder="Contanos brevemente qué necesitás" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand"></textarea>
+              <button class="w-full rounded-2xl bg-brand px-6 py-4 font-bold text-black transition hover:glow-shadow">
+                Solicitar propuesta
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 px-6 py-8 lg:px-8">
+      <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+        <p class="text-sm text-white/45">© 2up - Software Factory</p>
+        <div class="flex gap-6 text-sm text-white/50">
+          <a href="#" class="transition hover:text-brand">Instagram</a>
+          <a href="#" class="transition hover:text-brand">LinkedIn</a>
+          <a href="#" class="transition hover:text-brand">Facebook</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const words = ["DISEÑAMOS", "DESARROLLAMOS", "INTEGRAMOS", "OPTIMIZAMOS", "ESCALAMOS"];
+    const changingWord = document.getElementById("changing-word");
+
+    function updateWordOnScroll() {
+      const section = changingWord.closest("section");
+      const rect = section.getBoundingClientRect();
+      const total = section.offsetHeight - window.innerHeight;
+      const passed = Math.min(Math.max(-rect.top, 0), total);
+      const progress = total > 0 ? passed / total : 0;
+      const index = Math.min(words.length - 1, Math.floor(progress * words.length));
+      changingWord.textContent = words[index];
+    }
+
+    function parallaxScroll() {
+      const y = window.scrollY;
+
+      document.querySelectorAll(".hero-parallax").forEach((el, i) => {
+        const speed = (i + 1) * 0.06;
+        el.style.transform = `translateY(${y * speed}px)`;
+      });
+
+      document.querySelectorAll(".word-parallax").forEach((el, i) => {
+        const speed = (i + 1) * 0.04;
+        el.style.transform = `translateY(${y * speed}px)`;
+      });
+
+      document.querySelectorAll(".case-parallax").forEach((el, i) => {
+        const rect = el.getBoundingClientRect();
+        const offset = (window.innerHeight - rect.top) * 0.015 * ((i % 2 === 0) ? 1 : -1);
+        el.style.transform = `translateY(${Math.max(Math.min(offset, 16), -16)}px)`;
+      });
+    }
+
+    function onScrollEffects() {
+      updateWordOnScroll();
+      parallaxScroll();
+    }
+
+    window.addEventListener("scroll", onScrollEffects, { passive: true });
+    window.addEventListener("load", onScrollEffects);
+    window.addEventListener("resize", onScrollEffects);
+  </script>
+</body>
+</html>
