@@ -14,6 +14,7 @@
     <div class="grid-bg absolute inset-0 opacity-[0.05]"></div>
   </div>
 
+  
    <!-- NAV -->
   <header class="absolute top-0 z-50 w-full border-b border-white/10 bg-black/35 backdrop-blur-xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
@@ -149,6 +150,8 @@
   </div>
 </section>
 
+
+
       <!-- servicios -->
     <section id="servicios" class="px-6 py-8 bottom-2 lg:px-8">
       <div class="mx-auto max-w-7xl">
@@ -215,7 +218,7 @@
     </section>
 
     <!-- PROCESO -->
-    <section id="proceso" class="px-6 py-24 lg:px-8">
+    <section id="proceso" class="px-6 py-8 lg:px-8">
       <div class="mx-auto max-w-7xl rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl lg:p-12">
         <div class="max-w-2xl">
           <p class="text-sm font-semibold uppercase tracking-[0.25em] text-brand">Proceso</p>
@@ -262,12 +265,12 @@
     </section>
 
     <!-- CLIENTES -->
-    <section id="clientes" class="px-6 py-24 lg:px-8">
+    <section id="clientes" class="px-6 py-8 lg:px-8">
       <div class="mx-auto max-w-7xl rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl lg:p-12">
         <div class="max-w-2xl">
-          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-brand">Confianza</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.25em] text-brand">Experiencia</p>
           <h2 class="mt-4 text-4xl font-black uppercase tracking-tight sm:text-5xl">
-            Experiencia con distintas industrias
+            Distintas industrias que confiaron en nosotros
           </h2>
           <p class="mt-5 text-lg text-soft">
             Hemos recorrido un largo camino construyendo soluciones tecnológicas, estas son las empresas que confiaron en nosotros en diferentes momentos.
@@ -396,6 +399,8 @@
       </div>
     </section>
 
+    
+
     <!-- FOOTER -->
     <footer class="border-t border-white/10 px-6 py-8 lg:px-8">
       <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 md:flex-row md:items-center">
@@ -409,106 +414,141 @@
     </footer>
   </main>
 
-  <script>
-  const words = ["DISEÑAMOS", "DESARROLLAMOS", "INTEGRAMOS", "OPTIMIZAMOS", "ESCALAMOS"];
-  const changingWord = document.getElementById("changing-word");
-
-  function updateWordOnScroll() {
-    if (!changingWord) return;
-    const section = changingWord.closest("section");
-    if (!section) return;
-
-    const rect = section.getBoundingClientRect();
-    const total = section.offsetHeight - window.innerHeight;
-    const passed = Math.min(Math.max(-rect.top, 0), total);
-    const progress = total > 0 ? passed / total : 0;
-    const index = Math.min(words.length - 1, Math.floor(progress * words.length));
-    changingWord.textContent = words[index];
-  }
-
-  function onScrollEffects() {
-    updateWordOnScroll();
-
-    if (typeof parallaxScroll === "function") {
-      parallaxScroll();
-    }
-  }
-
-  window.addEventListener("scroll", onScrollEffects, { passive: true });
-  window.addEventListener("load", onScrollEffects);
-  window.addEventListener("resize", onScrollEffects);
-
-  const mobileMenuButton = document.getElementById("mobile-menu-button");
-  const mobileMenu = document.getElementById("mobile-menu");
-
-  if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-      const expanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
-      mobileMenuButton.setAttribute("aria-expanded", String(!expanded));
-    });
-
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-        mobileMenuButton.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-
-  function setHeroMobileLayout() {
-    const isMobile = window.innerWidth < 768;
-
-    const heroVisual = document.getElementById("hero-visual");
-    const heroGlow = document.getElementById("hero-glow");
-    const heroDashboard = document.getElementById("hero-dashboard");
-    const heroFocus = document.getElementById("hero-focus");
-    const heroResult = document.getElementById("hero-result");
-
-    if (!heroVisual || !heroGlow || !heroDashboard || !heroFocus || !heroResult) return;
-
-    if (isMobile) {
-      heroVisual.classList.add("flex", "flex-col", "items-center", "gap-4", "pt-4");
-      heroVisual.classList.remove("min-h-130");
-
-      heroGlow.classList.remove("left-10", "top-4", "h-72", "w-72");
-      heroGlow.classList.add("left-1/2", "-translate-x-1/2", "top-0", "h-52", "w-52", "opacity-80");
-
-      heroDashboard.classList.remove("absolute", "right-0", "top-0", "w-[85%]");
-      heroDashboard.classList.add("relative", "w-full", "max-w-[420px]", "z-20");
-
-      heroResult.classList.remove("absolute", "bottom-1", "left-0", "w-[82%]", "-translate-x-3", "z-10");
-      heroResult.classList.add("relative", "left-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-start", "z-20");
-
-      heroFocus.classList.remove("absolute", "bottom-10", "right-0", "-translate-x-3");
-      heroFocus.classList.add("relative", "right-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-end", "z-20");
-    } else {
-      heroVisual.classList.remove("flex", "flex-col", "items-center", "gap-4", "pt-4");
-      heroVisual.classList.add("min-h-130");
-
-      heroGlow.classList.remove("left-1/2", "-translate-x-1/2", "top-0", "h-52", "w-52", "opacity-80");
-      heroGlow.classList.add("left-10", "top-4", "h-72", "w-72");
-
-      heroDashboard.classList.remove("relative", "w-full", "max-w-[420px]", "z-20");
-      heroDashboard.classList.add("absolute", "right-0", "top-0", "w-[85%]");
-
-      heroResult.classList.remove("relative", "left-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-start", "z-20");
-      heroResult.classList.add("absolute", "bottom-1", "left-0", "w-[82%]", "-translate-x-3", "z-10");
-
-      heroFocus.classList.remove("relative", "right-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-end", "z-20");
-      heroFocus.classList.add("absolute", "bottom-10", "right-0", "-translate-x-3");
-    }
-  }
-
-  window.addEventListener("load", setHeroMobileLayout);
-  window.addEventListener("resize", setHeroMobileLayout);
-</script>
-
-
-  <!-- BOTON SCROLL-->
-  <a
-    href="#inicio" style="position:fixed; bottom:24px; right:24px; z-index:9999; width:30px; height:30px; border-radius:10px; background:#b6ff3b; color:#000; display:flex; align-items:center; justify-content:center; font-size:28px; text-decoration:none;">
+<!-- BOTON SCROLL TOP -->
+<div id="ast-scroll-top" class="fixed right-10 bottom-10 z-50 hidden cursor-pointer rounded-10 bg-brand p-2 text-black transition hover:glow-shadow">
+  <span class="flex items-center justify-center text-2xl leading-none">
     ▴
-  </a>
+  </span>
+</div>
+
+  <script>
+    const words = ["DISEÑAMOS", "DESARROLLAMOS", "INTEGRAMOS", "OPTIMIZAMOS", "ESCALAMOS"];
+    const changingWord = document.getElementById("changing-word");
+
+    function updateWordOnScroll() {
+      if (!changingWord) return;
+      const section = changingWord.closest("section");
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const total = section.offsetHeight - window.innerHeight;
+      const passed = Math.min(Math.max(-rect.top, 0), total);
+      const progress = total > 0 ? passed / total : 0;
+      const index = Math.min(words.length - 1, Math.floor(progress * words.length));
+      changingWord.textContent = words[index];
+    }
+
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        const expanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
+        mobileMenuButton.setAttribute("aria-expanded", String(!expanded));
+      });
+
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          mobileMenuButton.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    function setHeroMobileLayout() {
+      const isMobile = window.innerWidth < 768;
+
+      const heroVisual = document.getElementById("hero-visual");
+      const heroGlow = document.getElementById("hero-glow");
+      const heroDashboard = document.getElementById("hero-dashboard");
+      const heroFocus = document.getElementById("hero-focus");
+      const heroResult = document.getElementById("hero-result");
+
+      if (!heroVisual || !heroGlow || !heroDashboard || !heroFocus || !heroResult) return;
+
+      if (isMobile) {
+        heroVisual.classList.add("flex", "flex-col", "items-center", "gap-4", "pt-4");
+        heroVisual.classList.remove("min-h-130");
+
+        heroGlow.classList.remove("left-10", "top-4", "h-72", "w-72");
+        heroGlow.classList.add("left-1/2", "-translate-x-1/2", "top-0", "h-52", "w-52", "opacity-80");
+
+        heroDashboard.classList.remove("absolute", "right-0", "top-0", "w-[85%]");
+        heroDashboard.classList.add("relative", "w-full", "max-w-[420px]", "z-20");
+
+        heroResult.classList.remove("absolute", "bottom-1", "left-0", "w-[82%]", "-translate-x-3", "z-10");
+        heroResult.classList.add("relative", "left-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-start", "z-20");
+
+        heroFocus.classList.remove("absolute", "bottom-10", "right-0", "-translate-x-3");
+        heroFocus.classList.add("relative", "right-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-end", "z-20");
+      } else {
+        heroVisual.classList.remove("flex", "flex-col", "items-center", "gap-4", "pt-4");
+        heroVisual.classList.add("min-h-130");
+
+        heroGlow.classList.remove("left-1/2", "-translate-x-1/2", "top-0", "h-52", "w-52", "opacity-80");
+        heroGlow.classList.add("left-10", "top-4", "h-72", "w-72");
+
+        heroDashboard.classList.remove("relative", "w-full", "max-w-[420px]", "z-20");
+        heroDashboard.classList.add("absolute", "right-0", "top-0", "w-[85%]");
+
+        heroResult.classList.remove("relative", "left-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-start", "z-20");
+        heroResult.classList.add("absolute", "bottom-1", "left-0", "w-[82%]", "-translate-x-3", "z-10");
+
+        heroFocus.classList.remove("relative", "right-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-end", "z-20");
+        heroFocus.classList.add("absolute", "bottom-10", "right-0", "-translate-x-3");
+      }
+    }
+
+    const scrollTopButton = document.getElementById("ast-scroll-top");
+
+function toggleScrollTopButton() {
+  if (!scrollTopButton) return;
+
+  if (window.scrollY > 120) {
+    scrollTopButton.classList.remove("hidden");
+    scrollTopButton.classList.add("flex");
+  } else {
+    scrollTopButton.classList.add("hidden");
+    scrollTopButton.classList.remove("flex");
+  }
+}
+
+if (scrollTopButton) {
+  scrollTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  scrollTopButton.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  });
+}
+
+    function onScrollEffects() {
+      updateWordOnScroll();
+
+      if (typeof parallaxScroll === "function") {
+        parallaxScroll();
+      }
+
+      toggleScrollTopButton();
+    }
+
+    window.addEventListener("scroll", onScrollEffects, { passive: true });
+    window.addEventListener("load", onScrollEffects);
+    window.addEventListener("resize", onScrollEffects);
+
+    window.addEventListener("load", setHeroMobileLayout);
+    window.addEventListener("resize", setHeroMobileLayout);
+  </script>
 </body>
 </html>
