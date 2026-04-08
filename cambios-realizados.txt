@@ -1,0 +1,116 @@
+Resumen de cambios realizados en la landing de 2up
+
+Fecha: 08/04/2026
+
+Este archivo resume los cambios aplicados en el proyecto, especialmente en el boton de scroll superior y en el apartado de clientes, junto con el motivo de cada decision.
+
+1. Boton "volver arriba"
+
+Que se cambio:
+- Se rediseño el boton flotante que aparece al hacer scroll hacia abajo.
+- Se reemplazo el simbolo inicial por un icono SVG de flecha hacia arriba.
+- Se ajustaron color, fondo, borde, tamaño, forma y centrado del icono.
+- Se mejoro la accesibilidad con tabindex, role y aria-label.
+- Se corrigio la logica de aparicion del boton al hacer scroll.
+
+Por que se cambio:
+- El boton original se veia mas basico y no estaba alineado con la estetica general de la landing.
+- Se busco que el estilo se pareciera mas al bloque del HERO donde aparece "Resultado" y "Soluciones listas para crecer": fondo translucido, borde suave y color principal bien visible.
+- El icono se cambio a SVG porque permite un centrado mucho mas preciso que un caracter de texto.
+- Se uso estilo inline en varias propiedades del boton para evitar problemas con clases de Tailwind que no estaban presentes en el CSS compilado. Esto fue importante porque algunos cambios visuales no aparecian si no se recompilaba el proyecto.
+- Se uso display flex desde JavaScript para asegurar que el contenido del boton quede centrado de manera consistente.
+
+Resultado final del boton:
+- Fondo verde translucido.
+- Borde verde suave.
+- Flecha verde solida.
+- Forma mas cuadrada, pero con esquinas redondeadas suaves.
+- Aparicion al hacer scroll.
+- Centrado corregido del icono.
+
+2. Logica del boton al hacer scroll
+
+Que se cambio:
+- Se ajusto la funcion que muestra y oculta el boton segun la posicion del scroll.
+- Se dejo la aparicion del boton controlada con style.display desde JavaScript.
+
+Por que se cambio:
+- Antes el boton dependia de clases como hidden, flex o grid. Como algunas clases agregadas despues podian no existir en el CSS compilado, el boton podia dejar de verse.
+- Con style.display = "flex" y style.display = "none" el comportamiento quedo mas robusto y no depende de recompilar Tailwind para funcionar correctamente.
+
+3. Apartado de clientes
+
+Que se cambio:
+- Se reemplazo la grilla estatica de cajas que decian "Cliente 01", "Cliente 02", etc.
+- En su lugar se creo un carrusel horizontal continuo de logos.
+- Cada tarjeta ahora muestra como placeholder la imagen assets/cropped-logo.png.
+- Se dejaron 8 logos de ejemplo en lugar de 6 para demostrar que la seccion puede escalar.
+
+Por que se cambio:
+- El objetivo era preparar la seccion para mostrar logos reales de clientes en lugar de texto generico.
+- Un scroll infinito lento y constante hace que la seccion se vea mas viva y profesional.
+- La nueva estructura permite agregar mas logos sin necesidad de rehacer el layout.
+
+4. Scroll infinito de logos
+
+Que se cambio:
+- Se agrego una pista animada para los logos con una animacion horizontal continua.
+- Se creo una estructura con:
+  clients-marquee
+  clients-track
+  clients-list
+- Desde JavaScript se clona automaticamente la lista original para que el loop se vea continuo.
+
+Por que se cambio:
+- Si solo existiera una lista, al terminar el recorrido se notaria un corte.
+- Al duplicar la lista y mover la pista completa, el efecto parece infinito.
+- Esto deja el sistema listo para agregar mas logos reales despues sin tocar la logica principal.
+
+5. Estilos propios agregados en el head
+
+Que se cambio:
+- Se agrego un bloque style dentro del head para el apartado de clientes.
+- Ahi se definieron los estilos de:
+  clients-marquee
+  clients-track
+  clients-list
+  client-logo-card
+  la animacion @keyframes del movimiento continuo
+
+Por que se cambio:
+- Se eligio CSS directo dentro del HTML para que el efecto funcione sin depender de recompilar Tailwind.
+- Esto simplifica las pruebas y evita que un cambio visual desaparezca por no haber regenerado dist/output.css.
+
+6. Preparacion para futuros logos reales
+
+Como quedo listo:
+- Cada cliente ahora usa una etiqueta img.
+- Para cambiar un logo de ejemplo por uno real, alcanza con reemplazar el src de esa imagen.
+- Para agregar mas clientes, se puede duplicar una card existente dentro de la lista.
+- No hace falta cambiar la animacion para sumar mas logos.
+
+Recomendacion para futuro:
+- Cuando tengas los logos reales, conviene normalizarlos para que todos tengan fondo transparente y proporciones parecidas.
+- Si algunos logos son muy anchos o muy altos, se puede ajustar max-width o max-height para mantener una linea visual consistente.
+
+7. Motivo general de la estrategia usada
+
+En varios puntos se eligio una solucion robusta y directa por encima de una solucion puramente basada en utilidades Tailwind. La razon fue evitar que ciertos cambios dejaran de verse por no recompilar el CSS. Por eso algunos ajustes quedaron resueltos con CSS embebido o estilos inline. En este proyecto eso mejora la estabilidad del resultado visual mientras seguis iterando rapido sobre la landing.
+
+8. Que podes editar vos manualmente despues
+
+Boton scroll top:
+- Tamaño: width y height del style del boton.
+- Redondeado: border-radius.
+- Color de fondo: background rgba(...).
+- Borde: border.
+- Posicion: right y bottom.
+- Tamaño del icono: width y height del SVG.
+
+Carrusel de clientes:
+- Velocidad: valor de segundos en la animacion clients-marquee-right.
+- Tamaño de tarjetas: min-width, min-height, padding.
+- Tamaño del logo: max-width y max-height del img.
+- Cantidad de logos: duplicando o agregando nuevas cards dentro de la lista.
+
+Fin del resumen.

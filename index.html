@@ -6,6 +6,83 @@
   <title>2up - Software Factory</title>
   <link href="./dist/output.css" rel="stylesheet" />
   <link rel="icon" href="/assets/icon-2up.png">
+  <style>
+    .clients-marquee {
+      position: relative;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .clients-track {
+      display: flex;
+      width: max-content;
+      gap: 1rem;
+      will-change: transform;
+      animation: clients-marquee-right 38s linear infinite;
+    }
+
+    .clients-list {
+      display: flex;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .client-logo-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+      min-height: 92px;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1.25rem;
+      background: rgba(15, 19, 24, 0.92);
+      transition: border-color 0.25s ease;
+      pointer-events: none;
+    }
+
+    .client-logo-card:hover {
+      border-color: rgba(219, 247, 0, 0.3);
+    }
+
+    .client-logo-card img {
+      width: 100%;
+      max-width: 110px;
+      max-height: 44px;
+      object-fit: contain;
+      opacity: 0.9;
+      filter: grayscale(1) brightness(1.12);
+    }
+
+    @keyframes clients-marquee-right {
+      from {
+        transform: translateX(-50%);
+      }
+
+      to {
+        transform: translateX(0%);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .clients-track,
+      .clients-list {
+        gap: 0.75rem;
+      }
+
+      .client-logo-card {
+        min-width: 132px;
+        min-height: 84px;
+        padding: 1rem 1.1rem;
+      }
+
+      .client-logo-card img {
+        max-width: 92px;
+        max-height: 38px;
+      }
+    }
+  </style>
 </head>
 <body class="bg-bg text-white antialiased selection:bg-brand selection:text-black">
   <!-- Fondo global -->
@@ -277,13 +354,35 @@
           </p>
         </div>
 
-        <div class="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-6">
-          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 01</div>
-          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 02</div>
-          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 03</div>
-          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 04</div>
-          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 05</div>
-          <div class="rounded-2xl border border-white/10 bg-surface px-6 py-8 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:border-brand/30 hover:text-brand">Cliente 06</div>
+        <div class="clients-marquee mt-12">
+          <div class="clients-track" id="clients-track">
+            <div class="clients-list" id="clients-list">
+              <div class="client-logo-card">
+                <img src="assets/cropped-logo.png" alt="Cliente 01" />
+              </div>
+              <div class="client-logo-card">
+                <img src="assets/cropped-logo.png" alt="Cliente 02" />
+              </div>
+              <div class="client-logo-card">
+                <img src="assets/cropped-logo.png" alt="Cliente 03" />
+              </div>
+              <div class="client-logo-card">
+                <img src="assets/cropped-logo.png" alt="Cliente 04" />
+              </div>
+              <div class="client-logo-card">
+                <img src="assets/cropped-logo.png" alt="Cliente 05" />
+              </div>
+              <div class="client-logo-card">
+                <img src="assets/cropped-logo.png" alt="Cliente 06" />
+              </div>
+              <div class="client-logo-card">
+                <img src="assets/cropped-logo.png" alt="Cliente 07" />
+              </div>
+              <div class="client-logo-card">
+                <img src="assets/cropped-logo.png" alt="Cliente 08" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -317,9 +416,9 @@
             </div>
           </article>
 
-          <article class="case-parallax relative order-2 flex min-h-55 items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-7  hover:-translate-y-1 hover:border-brand/30 hover:glow-shadow sm:min-h-65 lg:min-h-full">
-            <div>
-              <img src="assets/cropped-logo.png" alt="logo 2up" class="w-full max-w-40 opacity-20 sm:max-w-45">
+          <article class="case-parallax relative order-2 flex min-h-55 items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-7 hover:-translate-y-1 hover:border-brand/30 hover:glow-shadow sm:min-h-65 lg:min-h-full">
+            <div style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;">
+              <img src="assets/cropped-logo.png" alt="logo 2up" style="display: block; width: 100%; max-width: 210px; margin: 0 auto; object-fit: contain; opacity: 0.9;">
             </div>
           </article>
         </div>
@@ -417,11 +516,15 @@
 <!-- BOTON SCROLL TOP -->
 <div
   id="ast-scroll-top"
-  class="fixed right-10 bottom-10 z-50 hidden h-12 w-12 items-center justify-center cursor-pointer rounded-xl bg-brand text-black transition hover:glow-shadow"
+  class="fixed z-50 h-12 w-12 cursor-pointer place-items-center rounded-0 backdrop-blur-xl transition duration-300 hover:glow-shadow focus-visible:outline-none"
+  style="right: 2.5rem; bottom: 2.5rem; display: none; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 0.55rem; border: 1px solid rgba(219, 247, 0, 0.42); background: rgba(219, 247, 0, 0.14); color: #dbf700;"
+  role="button"
+  tabindex="0"
+  aria-label="Volver arriba"
 >
-  <span class="text-4xl leading-none">
-    ▴
-  </span>
+  <svg class="h-5 w-5" style="display: block; width: 18px; height: 18px; transform: translateY(1px);" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M6 14L12 8L18 14" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
 </div>
 
   <script>
@@ -504,16 +607,23 @@
     }
 
     const scrollTopButton = document.getElementById("ast-scroll-top");
+    const clientsTrack = document.getElementById("clients-track");
+    const clientsList = document.getElementById("clients-list");
+
+    if (clientsTrack && clientsList && !clientsTrack.dataset.cloned) {
+      const clientsClone = clientsList.cloneNode(true);
+      clientsClone.setAttribute("aria-hidden", "true");
+      clientsTrack.appendChild(clientsClone);
+      clientsTrack.dataset.cloned = "true";
+    }
 
 function toggleScrollTopButton() {
   if (!scrollTopButton) return;
 
   if (window.scrollY > 120) {
-    scrollTopButton.classList.remove("hidden");
-    scrollTopButton.classList.add("flex");
+    scrollTopButton.style.display = "flex";
   } else {
-    scrollTopButton.classList.add("hidden");
-    scrollTopButton.classList.remove("flex");
+    scrollTopButton.style.display = "none";
   }
 }
 
