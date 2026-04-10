@@ -3,86 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="2up Software Factory: desarrollo de software a medida, UX/UI, integraciones, testing y escalabilidad para empresas." />
+  <meta property="og:title" content="2up - Software Factory" />
+  <meta property="og:description" content="Desarrollamos software que impulsa negocios con foco en calidad, velocidad y escalabilidad." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/cropped-logo.png" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="2up - Software Factory" />
+  <meta property="twitter:description" content="Soluciones digitales para empresas: software factory, UX/UI, integraciones y QA." />
+  <meta property="twitter:image" content="assets/cropped-logo.png" />
   <title>2up - Software Factory</title>
   <link href="./dist/output.css" rel="stylesheet" />
-  <link rel="icon" href="/assets/icon-2up.png">
-  <style>
-    .clients-marquee {
-      position: relative;
-      overflow: hidden;
-      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-    }
-
-    .clients-track {
-      display: flex;
-      width: max-content;
-      gap: 1rem;
-      will-change: transform;
-      animation: clients-marquee-right 38s linear infinite;
-    }
-
-    .clients-list {
-      display: flex;
-      gap: 1rem;
-      flex-shrink: 0;
-    }
-
-    .client-logo-card {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 150px;
-      min-height: 92px;
-      padding: 1.25rem 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 1.25rem;
-      background: rgba(15, 19, 24, 0.92);
-      transition: border-color 0.25s ease;
-      pointer-events: none;
-    }
-
-    .client-logo-card:hover {
-      border-color: rgba(219, 247, 0, 0.3);
-    }
-
-    .client-logo-card img {
-      width: 100%;
-      max-width: 110px;
-      max-height: 44px;
-      object-fit: contain;
-      opacity: 0.9;
-      filter: grayscale(1) brightness(1.12);
-    }
-
-    @keyframes clients-marquee-right {
-      from {
-        transform: translateX(-50%);
-      }
-
-      to {
-        transform: translateX(0%);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .clients-track,
-      .clients-list {
-        gap: 0.75rem;
-      }
-
-      .client-logo-card {
-        min-width: 132px;
-        min-height: 84px;
-        padding: 1rem 1.1rem;
-      }
-
-      .client-logo-card img {
-        max-width: 92px;
-        max-height: 38px;
-      }
-    }
-  </style>
+  <link href="assets/css/components.css" rel="stylesheet" />
+  <link rel="icon" href="assets/icon-2up.png" />
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body class="bg-bg text-white antialiased selection:bg-brand selection:text-black">
   <!-- Fondo global -->
@@ -94,9 +28,9 @@
   
    <!-- NAV -->
   <header class="absolute top-0 z-50 w-full border-b border-white/10 bg-black/35 backdrop-blur-xl">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-2 lg:px-8">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 lg:px-8">
       <a href="#inicio" class="flex items-center gap-3">
-        <img src="assets/cropped-logo.png" alt="logo 2up">
+        <img src="assets/cropped-logo.png" alt="logo 2up" width="88" height="34">
       </a>
 
       <!-- NAV DESKTOP -->
@@ -104,7 +38,7 @@
         <a href="#servicios" class="transition hover:text-brand">Servicios</a>
         <a href="#proceso" class="transition hover:text-brand">Proceso</a>
         <a href="#clientes" class="transition hover:text-brand">Experiencia</a>
-        <a href="#¿Por qué elegirnos?" class="transition hover:text-brand">¿Por qué elegirnos?</a>
+        <a href="#por-que-elegirnos" class="transition hover:text-brand">¿Por qué elegirnos?</a>
         <a href="#contacto" class="transition hover:text-brand">Contacto</a>
       </nav>
 
@@ -126,7 +60,7 @@
         <a href="#servicios" class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:text-brand">Servicios</a>
         <a href="#proceso" class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:text-brand">Proceso</a>
         <a href="#clientes" class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:text-brand">Experiencia</a>
-        <a href="#¿Por qué elegirnos?" class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:text-brand">¿Por qué elegirnos?</a>
+        <a href="#por-que-elegirnos" class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:text-brand">¿Por qué elegirnos?</a>
         <a href="#contacto" class="rounded-xl border border-brand/20 bg-brand/10 px-4 py-3 font-semibold text-brand transition hover:bg-brand hover:text-black">Contacto</a>
       </nav>
     </div>
@@ -169,10 +103,10 @@
       </div>
     </div>
 
-    <div id="hero-visual" class="relative min-h-160">
-      <div id="hero-glow" class="hero-parallax relative left-10 top-4 h-72 w-72 rounded-full bg-brand/15 blur-3xl"></div>
+    <div id="hero-visual" class="relative">
+      <div id="hero-glow" class="relative left-10 top-4 h-72 w-72 rounded-full bg-brand/15 blur-3xl"></div>
 
-      <div id="hero-dashboard" class="hero-parallax absolute right-0 top-0 w-[85%] rounded-4xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
+      <div id="hero-dashboard" class="absolute right-0 top-0 w-[85%] rounded-4xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
         <div class="mb-4 flex items-center justify-between">
           <div>
             <p class="text-xs uppercase tracking-[0.22em] text-white/40">Panel operativo</p>
@@ -230,7 +164,7 @@
 
 
       <!-- servicios -->
-    <section id="servicios" class="px-6 py-8 bottom-2 lg:px-8">
+    <section id="servicios" class="px-6 py-8 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
           <p class="text-sm font-semibold uppercase tracking-[0.25em] text-brand">Servicios</p>
@@ -358,28 +292,28 @@
           <div class="clients-track" id="clients-track">
             <div class="clients-list" id="clients-list">
               <div class="client-logo-card">
-                <img src="assets/cropped-logo.png" alt="Cliente 01" />
+                <img src="assets/cropped-logo.png" alt="Cliente 01" loading="lazy" />
               </div>
               <div class="client-logo-card">
-                <img src="assets/cropped-logo.png" alt="Cliente 02" />
+                <img src="assets/cropped-logo.png" alt="Cliente 02" loading="lazy" />
               </div>
               <div class="client-logo-card">
-                <img src="assets/cropped-logo.png" alt="Cliente 03" />
+                <img src="assets/cropped-logo.png" alt="Cliente 03" loading="lazy" />
               </div>
               <div class="client-logo-card">
-                <img src="assets/cropped-logo.png" alt="Cliente 04" />
+                <img src="assets/cropped-logo.png" alt="Cliente 04" loading="lazy" />
               </div>
               <div class="client-logo-card">
-                <img src="assets/cropped-logo.png" alt="Cliente 05" />
+                <img src="assets/cropped-logo.png" alt="Cliente 05" loading="lazy" />
               </div>
               <div class="client-logo-card">
-                <img src="assets/cropped-logo.png" alt="Cliente 06" />
+                <img src="assets/cropped-logo.png" alt="Cliente 06" loading="lazy" />
               </div>
               <div class="client-logo-card">
-                <img src="assets/cropped-logo.png" alt="Cliente 07" />
+                <img src="assets/cropped-logo.png" alt="Cliente 07" loading="lazy" />
               </div>
               <div class="client-logo-card">
-                <img src="assets/cropped-logo.png" alt="Cliente 08" />
+                <img src="assets/cropped-logo.png" alt="Cliente 08" loading="lazy" />
               </div>
             </div>
           </div>
@@ -388,7 +322,7 @@
     </section>
 
     <!-- NOSOTROS -->
-    <section id="¿Por qué elegirnos?" class="px-6 py-8 lg:px-8">
+    <section id="por-que-elegirnos" class="px-6 py-8 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div class="max-w-2xl">
           <h2 class="mb-4 text-4xl font-black uppercase tracking-tight sm:text-5xl">
@@ -417,8 +351,8 @@
           </article>
 
           <article class="case-parallax relative order-2 flex min-h-55 items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-7 hover:-translate-y-1 hover:border-brand/30 hover:glow-shadow sm:min-h-65 lg:min-h-full">
-            <div style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;">
-              <img src="assets/cropped-logo.png" alt="logo 2up" style="display: block; width: 100%; max-width: 210px; margin: 0 auto; object-fit: contain; opacity: 0.9;">
+            <div class="about-logo-wrapper">
+              <img src="assets/cropped-logo.png" alt="logo 2up" class="about-logo" width="280" height="148" loading="lazy" />
             </div>
           </article>
         </div>
@@ -483,16 +417,24 @@
           </div>
 
           <div class="rounded-[1.75rem] border border-white/10 bg-black/20 p-6 backdrop-blur-xl">
-            <p class="text-lg font-bold">Dejanos tus datos</p>
-            <div class="mt-6 space-y-4">
-              <input type="text" placeholder="Nombre" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand" />
-              <input type="email" placeholder="Email" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand" />
-              <input type="text" placeholder="Empresa" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand" />
-              <textarea rows="5" placeholder="Contanos brevemente qué necesitás" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand"></textarea>
-              <button class="w-full rounded-2xl bg-brand px-6 py-4 font-bold text-black transition hover:glow-shadow">
+            <h3 class="text-lg font-bold">Dejanos tus datos</h3>
+            <form class="mt-6 space-y-4" action="#" method="post" novalidate>
+              <label class="sr-only" for="contact-name">Nombre</label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Nombre" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/60" />
+
+              <label class="sr-only" for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="Email" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/60" />
+
+              <label class="sr-only" for="contact-company">Empresa</label>
+              <input id="contact-company" name="company" type="text" autocomplete="organization" placeholder="Empresa" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/60" />
+
+              <label class="sr-only" for="contact-message">Mensaje</label>
+              <textarea id="contact-message" name="message" rows="5" placeholder="Contanos brevemente qué necesitás" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/60"></textarea>
+
+              <button type="submit" class="w-full rounded-2xl bg-brand px-6 py-4 font-bold text-black transition hover:glow-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/70">
                 Solicitar propuesta
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
@@ -514,157 +456,15 @@
   </main>
 
 <!-- BOTON SCROLL TOP -->
-<div
+<button
   id="ast-scroll-top"
-  class="fixed z-50 h-12 w-12 cursor-pointer place-items-center rounded-0 backdrop-blur-xl transition duration-300 hover:glow-shadow focus-visible:outline-none"
-  style="right: 2.5rem; bottom: 2.5rem; display: none; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 0.55rem; border: 1px solid rgba(219, 247, 0, 0.42); background: rgba(219, 247, 0, 0.14); color: #dbf700;"
-  role="button"
-  tabindex="0"
+  class="scroll-top-button"
+  type="button"
   aria-label="Volver arriba"
 >
-  <svg class="h-5 w-5" style="display: block; width: 18px; height: 18px; transform: translateY(1px);" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <svg class="scroll-top-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <path d="M6 14L12 8L18 14" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
   </svg>
-</div>
-
-  <script>
-    const words = ["DISEÑAMOS", "DESARROLLAMOS", "INTEGRAMOS", "OPTIMIZAMOS", "ESCALAMOS"];
-    const changingWord = document.getElementById("changing-word");
-
-    function updateWordOnScroll() {
-      if (!changingWord) return;
-      const section = changingWord.closest("section");
-      if (!section) return;
-
-      const rect = section.getBoundingClientRect();
-      const total = section.offsetHeight - window.innerHeight;
-      const passed = Math.min(Math.max(-rect.top, 0), total);
-      const progress = total > 0 ? passed / total : 0;
-      const index = Math.min(words.length - 1, Math.floor(progress * words.length));
-      changingWord.textContent = words[index];
-    }
-
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-        const expanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
-        mobileMenuButton.setAttribute("aria-expanded", String(!expanded));
-      });
-
-      mobileMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-          mobileMenuButton.setAttribute("aria-expanded", "false");
-        });
-      });
-    }
-
-    function setHeroMobileLayout() {
-      const isMobile = window.innerWidth < 768;
-
-      const heroVisual = document.getElementById("hero-visual");
-      const heroGlow = document.getElementById("hero-glow");
-      const heroDashboard = document.getElementById("hero-dashboard");
-      const heroFocus = document.getElementById("hero-focus");
-      const heroResult = document.getElementById("hero-result");
-
-      if (!heroVisual || !heroGlow || !heroDashboard || !heroFocus || !heroResult) return;
-
-      if (isMobile) {
-        heroVisual.classList.add("flex", "flex-col", "items-center", "gap-4", "pt-4");
-        heroVisual.classList.remove("min-h-130");
-
-        heroGlow.classList.remove("left-10", "top-4", "h-72", "w-72");
-        heroGlow.classList.add("left-1/2", "-translate-x-1/2", "top-0", "h-52", "w-52", "opacity-80");
-
-        heroDashboard.classList.remove("absolute", "right-0", "top-0", "w-[85%]");
-        heroDashboard.classList.add("relative", "w-full", "max-w-[420px]", "z-20");
-
-        heroResult.classList.remove("absolute", "bottom-1", "left-0", "w-[82%]", "-translate-x-3", "z-10");
-        heroResult.classList.add("relative", "left-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-start", "z-20");
-
-        heroFocus.classList.remove("absolute", "bottom-10", "right-0", "-translate-x-3");
-        heroFocus.classList.add("relative", "right-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-end", "z-20");
-      } else {
-        heroVisual.classList.remove("flex", "flex-col", "items-center", "gap-4", "pt-4");
-        heroVisual.classList.add("min-h-130");
-
-        heroGlow.classList.remove("left-1/2", "-translate-x-1/2", "top-0", "h-52", "w-52", "opacity-80");
-        heroGlow.classList.add("left-10", "top-4", "h-72", "w-72");
-
-        heroDashboard.classList.remove("relative", "w-full", "max-w-[420px]", "z-20");
-        heroDashboard.classList.add("absolute", "right-0", "top-0", "w-[85%]");
-
-        heroResult.classList.remove("relative", "left-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-start", "z-20");
-        heroResult.classList.add("absolute", "bottom-1", "left-0", "w-[82%]", "-translate-x-3", "z-10");
-
-        heroFocus.classList.remove("relative", "right-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-end", "z-20");
-        heroFocus.classList.add("absolute", "bottom-10", "right-0", "-translate-x-3");
-      }
-    }
-
-    const scrollTopButton = document.getElementById("ast-scroll-top");
-    const clientsTrack = document.getElementById("clients-track");
-    const clientsList = document.getElementById("clients-list");
-
-    if (clientsTrack && clientsList && !clientsTrack.dataset.cloned) {
-      const clientsClone = clientsList.cloneNode(true);
-      clientsClone.setAttribute("aria-hidden", "true");
-      clientsTrack.appendChild(clientsClone);
-      clientsTrack.dataset.cloned = "true";
-    }
-
-function toggleScrollTopButton() {
-  if (!scrollTopButton) return;
-
-  if (window.scrollY > 120) {
-    scrollTopButton.style.display = "flex";
-  } else {
-    scrollTopButton.style.display = "none";
-  }
-}
-
-if (scrollTopButton) {
-  scrollTopButton.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-
-  scrollTopButton.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-  });
-}
-
-    function onScrollEffects() {
-      updateWordOnScroll();
-
-      if (typeof parallaxScroll === "function") {
-        parallaxScroll();
-      }
-
-      toggleScrollTopButton();
-    }
-
-    window.addEventListener("scroll", onScrollEffects, { passive: true });
-    window.addEventListener("load", onScrollEffects);
-    window.addEventListener("resize", onScrollEffects);
-
-    window.addEventListener("load", setHeroMobileLayout);
-    window.addEventListener("resize", setHeroMobileLayout);
-  </script>
-
-
-
+</button>
 </body>
 </html>
