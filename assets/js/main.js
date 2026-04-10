@@ -82,7 +82,7 @@ function setHeroMobileLayout() {
     heroResult.classList.remove("absolute", "bottom-1", "left-0", "w-[82%]", "-translate-x-3", "z-10");
     heroResult.classList.add("relative", "left-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-start", "z-20");
 
-    heroFocus.classList.remove("absolute", "bottom-0", "right-0", "-translate-x-3");
+    heroFocus.classList.remove("absolute", "bottom-10", "bottom-0", "right-0", "-translate-x-3");
     heroFocus.classList.add("relative", "right-auto", "bottom-auto", "w-full", "max-w-[360px]", "translate-x-0", "self-end", "z-20");
     return;
   }
