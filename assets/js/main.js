@@ -29,6 +29,15 @@ function initMobileMenu() {
   });
 }
 
+function enforceDesktopMenuState() {
+  if (!mobileMenuButton || !mobileMenu) return;
+
+  if (window.innerWidth >= 768) {
+    mobileMenu.classList.add("hidden");
+    mobileMenuButton.setAttribute("aria-expanded", "false");
+  }
+}
+
 function initClientsMarquee() {
   if (!clientsTrack || !clientsList || clientsTrack.dataset.cloned === "true") return;
 
@@ -117,6 +126,7 @@ function initOptimizedEvents() {
   };
 
   const onResize = debounce(() => {
+    enforceDesktopMenuState();
     setHeroMobileLayout();
     toggleScrollTopButton();
   }, 100);
@@ -127,6 +137,7 @@ function initOptimizedEvents() {
 
 function init() {
   initMobileMenu();
+  enforceDesktopMenuState();
   initClientsMarquee();
   initScrollTopButton();
   setHeroMobileLayout();

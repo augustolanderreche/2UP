@@ -120,6 +120,18 @@
   border: 0;
 }
 
+/* Fallback responsive behavior for mobile navigation controls. */
+#mobile-menu-button {
+  display: inline-flex;
+}
+
+@media (min-width: 768px) {
+  #mobile-menu-button,
+  #mobile-menu {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px) {
   .clients-track,
   .clients-list {
