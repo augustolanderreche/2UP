@@ -113,4 +113,25 @@ Carrusel de clientes:
 - Tamaño del logo: max-width y max-height del img.
 - Cantidad de logos: duplicando o agregando nuevas cards dentro de la lista.
 
+9. Actualizacion reciente de servicios y verticales
+
+Que se cambio:
+- Se reemplazo el contenido del bloque de servicios con texto derivado de un capitulo de PDF.
+- Se incorporo una nueva seccion de verticales con tarjetas para distintos mercados y productos.
+- Se ajusto el diseño de las tarjetas para que encajen mejor con la estetica general de la landing, mejorando espaciado, redondeado y tratamiento visual de los iconos.
+- Se reemplazaron los iconos por SVG inline crudos y se uso el color lime de la marca.
+- Se eliminaron los wrappers visuales alrededor de los iconos para lograr una apariencia mas limpia y consistente.
+- Se corrigieron los iconos de Healthcare y Gastro, ademas de los iconos internos de las tarjetas de verticales.
+- Se simplifico el icono de Gastro a una representacion de sombrero de chef o plato solido en lime.
+
+Por que se cambio:
+- Para lograr una presentacion visual mas consistente, moderna y alineada con la identidad de la marca.
+- Para mejorar la claridad del contenido y fortalecer la propuesta de valor de cada vertical.
+- Para evitar estilos innecesarios que dificultaban la coherencia visual entre los distintos bloques.
+
+Resultado final:
+- Seccion de servicios con contenido mas claro y preparado para la propuesta de valor.
+- Seccion de verticales con tarjetas visualmente homogeneas y listas para mostrar productos/servicios.
+- Iconos limpios, modernos y alineados con la estetica de la landing.
+
 Fin del resumen.

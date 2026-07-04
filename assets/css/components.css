@@ -138,6 +138,71 @@
   border: 0;
 }
 
+/* Verticales: icon + feature row styling */
+.vertical-card-icon,
+.feature-icon,
+.service-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+}
+
+svg.service-icon {
+  width: 34px;
+  height: 34px;
+}
+
+.feature-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.9rem;
+}
+
+svg.feature-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.feature-row h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.feature-row p {
+  margin: 0.25rem 0 0 0;
+  color: rgba(255,255,255,0.75);
+}
+
+/* Service card icon (small) */
+svg.service-icon,
+svg.vertical-card-icon,
+svg.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  stroke: #dbf700;
+  fill: #dbf700;
+  color: #dbf700;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+svg.feature-icon {
+  stroke: #3b3b3b;
+  fill: none;
+  color: #3b3b3b;
+}
+
+svg.service-icon,
+svg.vertical-card-icon,
+svg.feature-icon {
+  background: transparent;
+  border: none;
+}
+
 /* Fallback responsive behavior for mobile navigation controls. */
 #mobile-menu-button {
   display: inline-flex;
