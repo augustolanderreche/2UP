@@ -1,0 +1,13 @@
+{
+  "name": "landing-page-2up",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./input.css -o ./dist/output.css --minify",
+    "watch:css": "tailwindcss -i ./input.css -o ./dist/output.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.2.1",
+    "tailwindcss": "4.2.1"
+  }
+}
