@@ -42,45 +42,84 @@ scrollTopButton.addEventListener("click", () => window.scrollTo({ top: 0 }));
 window.addEventListener("scroll", updateScrollButton, { passive: true });
 updateScrollButton();
 
-// Keep the initial reading area visible; reveal later blocks a little inside the viewport.
+// Observe nearby blocks only. Their position determines both opacity and direction.
 function initScrollReveals() {
+  if (!("IntersectionObserver" in window)) return;
+
   const motion = window.matchMedia("(prefers-reduced-motion: no-preference)");
-  if (!motion.matches || !("IntersectionObserver" in window)) return;
+  const viewport = document.documentElement;
+  const items = document.querySelectorAll("[data-reveal], [data-reveal-list] > *");
+  const nearby = new Set();
+  let frame = 0;
 
-  const viewportHeight = document.documentElement.clientHeight;
-  const inset = Math.min(72, Math.round(viewportHeight * 0.12));
-  const observer = new IntersectionObserver((entries) => {
-    let previous;
-    let delay = 0;
+  function clearReveal(item) {
+    if (!item.classList.contains("scroll-reveal")) return;
+    item.classList.remove("scroll-reveal");
+    item.style.removeProperty("--reveal-progress");
+    item.style.removeProperty("--reveal-offset");
+  }
 
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      const item = entry.target;
-      observer.unobserve(item);
+  function update() {
+    frame = 0;
+    const height = viewport.clientHeight;
+    if (!height) return;
+    const distance = Math.min(215, height * 0.28);
+    const atStart = window.scrollY <= 0;
+    const atEnd = Math.ceil(window.scrollY + height) >= viewport.scrollHeight;
+    const positions = Array.from(nearby, (item) => [item, item.getBoundingClientRect()]);
 
-      // Only stagger siblings that enter together on the same grid row.
-      const sameRow = previous && previous.target.parentElement === item.parentElement
-        && Math.abs(previous.boundingClientRect.top - entry.boundingClientRect.top) < 2;
-      delay = sameRow ? Math.min(delay + 45, 135) : 0;
-      if (delay) item.style.setProperty("--reveal-delay", delay + "ms");
-      item.classList.replace("reveal-pending", "is-entering");
-      previous = entry;
-    }
-  }, { rootMargin: "0px 0px -" + inset + "px 0px" });
+    for (const [item, rect] of positions) {
+      const fromTop = atStart ? distance : rect.bottom;
+      const fromBottom = atEnd ? distance : height - rect.top;
+      const depth = Math.min(fromTop, fromBottom);
+      if (depth >= distance) {
+        clearReveal(item);
+        continue;
+      }
 
-  for (const item of document.querySelectorAll("[data-reveal], [data-reveal-list] > *")) {
-    if (item.getBoundingClientRect().top >= viewportHeight - inset) {
-      item.classList.add("reveal-pending");
-      observer.observe(item);
+      const progress = Math.max(0, depth / distance);
+      const opacity = progress * progress * (3 - 2 * progress);
+      const offset = (fromTop < fromBottom ? 10 : -10) * (1 - opacity);
+      item.style.setProperty("--reveal-progress", opacity.toFixed(4));
+      item.style.setProperty("--reveal-offset", offset.toFixed(2) + "px");
+      item.classList.add("scroll-reveal");
     }
   }
 
-  motion.addEventListener("change", () => {
-    observer.disconnect();
-    for (const item of document.querySelectorAll(".reveal-pending, .is-entering")) {
-      item.classList.remove("reveal-pending", "is-entering");
+  function scheduleUpdate() {
+    if (nearby.size && !frame) frame = requestAnimationFrame(update);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        nearby.add(entry.target);
+      } else {
+        nearby.delete(entry.target);
+        clearReveal(entry.target);
+      }
     }
-  }, { once: true });
+    scheduleUpdate();
+  }, { rootMargin: "96px 0px" });
+
+  function syncMotion() {
+    if (motion.matches) {
+      items.forEach((item) => observer.observe(item));
+      window.addEventListener("scroll", scheduleUpdate, { passive: true });
+      window.addEventListener("resize", scheduleUpdate);
+    } else {
+      observer.disconnect();
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      cancelAnimationFrame(frame);
+      frame = 0;
+      nearby.forEach(clearReveal);
+      nearby.clear();
+    }
+  }
+
+  motion.addEventListener("change", syncMotion);
+  syncMotion();
 }
 
 initScrollReveals();

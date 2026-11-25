@@ -227,42 +227,18 @@ svg.feature-icon {
   transform-origin: left;
 }
 
-/* Entry motion is applied only after a block reaches the viewport. */
 @media screen and (prefers-reduced-motion: no-preference) {
-  .reveal-pending {
-    opacity: var(--reveal-opacity, 0.25);
+  .scroll-reveal:not(:focus-within) {
+    opacity: var(--reveal-progress, 0);
+    transition-property: none;
   }
 
-  .is-entering {
-    animation: reading-entry 620ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms) backwards;
+  /* Move the contents so the measured top of the block stays stable. */
+  .scroll-reveal:not(:focus-within) > :where(h2, h3, h4, p, div, svg) {
+    translate: 0 var(--reveal-offset, 0px);
   }
 
-  [data-reveal="intro"] {
-    --reveal-distance: 10px;
-  }
-
-  [data-reveal-list="details"] > * {
-    --reveal-distance: 7px;
-    --reveal-opacity: 0.5;
-  }
-
-  [data-reveal-list="steps"] > .is-entering > :first-child::after {
-    animation: step-line 520ms ease-out var(--reveal-delay, 0ms) backwards;
-  }
-
-  @keyframes reading-entry {
-    from {
-      opacity: var(--reveal-opacity, 0.25);
-      transform: translateY(var(--reveal-distance, 14px));
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes step-line {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
+  [data-reveal-list="steps"] > .scroll-reveal:not(:focus-within) > :first-child::after {
+    transform: scaleX(var(--reveal-progress, 0));
   }
 }
