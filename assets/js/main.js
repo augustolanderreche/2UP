@@ -27,6 +27,7 @@ desktop.addEventListener("change", () => {
 });
 
 const clientsList = document.getElementById("clients-list");
+// La segunda lista completa el ciclo visual y se oculta a los lectores de pantalla.
 const clientsClone = clientsList.cloneNode(true);
 clientsClone.removeAttribute("id");
 clientsClone.setAttribute("aria-hidden", "true");
@@ -42,7 +43,7 @@ scrollTopButton.addEventListener("click", () => window.scrollTo({ top: 0 }));
 window.addEventListener("scroll", updateScrollButton, { passive: true });
 updateScrollButton();
 
-// Observe nearby blocks only. Their position determines both opacity and direction.
+// El observador limita el cálculo de cada cuadro a los bloques cercanos a la pantalla.
 function initScrollReveals() {
   if (!("IntersectionObserver" in window)) return;
 
@@ -66,6 +67,7 @@ function initScrollReveals() {
     const distance = Math.min(215, height * 0.28);
     const atStart = window.scrollY <= 0;
     const atEnd = Math.ceil(window.scrollY + height) >= viewport.scrollHeight;
+    // Medir todos los bloques antes de aplicar estilos evita alternar lecturas y escrituras.
     const positions = Array.from(nearby, (item) => [item, item.getBoundingClientRect()]);
 
     for (const [item, rect] of positions) {
@@ -78,6 +80,7 @@ function initScrollReveals() {
       }
 
       const progress = Math.max(0, depth / distance);
+      // Esta curva suaviza la entrada y la salida sin separar el efecto del scroll.
       const opacity = progress * progress * (3 - 2 * progress);
       const offset = (fromTop < fromBottom ? 10 : -10) * (1 - opacity);
       item.style.setProperty("--reveal-progress", opacity.toFixed(4));

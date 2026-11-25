@@ -18,20 +18,17 @@
   <script src="assets/js/main.js?v=6" defer></script>
 </head>
 <body class="bg-bg text-white antialiased selection:bg-brand selection:text-black">
-  <!-- Fondo global -->
   <div class="pointer-events-none fixed inset-0 overflow-hidden">
     <div class="radial-brand absolute -top-32 left-1/2 h-120 w-120 -translate-x-1/2 rounded-full blur-3xl opacity-80"></div>
     <div class="grid-bg absolute inset-0 opacity-[0.05]"></div>
   </div>
 
-   <!-- NAV -->
   <header class="absolute top-0 z-50 w-full border-b border-white/10 bg-black/35 backdrop-blur-xl">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 lg:px-8">
       <a href="#inicio" class="flex items-center gap-3">
         <img src="assets/cropped-logo.png" alt="logo 2up" width="88" height="34">
       </a>
 
-      <!-- NAV DESKTOP -->
       <nav class="hidden items-center gap-8 text-sm text-white/70 md:flex">
         <a href="#servicios" class="transition hover:text-brand">Servicios</a>
         <a href="#verticales" class="transition hover:text-brand">Verticales</a>
@@ -41,7 +38,6 @@
         <a href="#contacto" class="transition hover:text-brand">Contacto</a>
       </nav>
 
-      <!-- BOTON MOBILE -->
       <button
         id="mobile-menu-button"
         type="button"
@@ -54,7 +50,6 @@
       </button>
     </div>
 
-    <!-- MENU MOBILE DESPLEGABLE -->
     <div id="mobile-menu" class="hidden border-t border-white/10 bg-black/85 px-6 pb-5 pt-3 backdrop-blur-xl md:hidden">
       <nav class="flex flex-col gap-3 text-sm text-white/70">
         <a href="#servicios" class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition hover:text-brand">Servicios</a>
@@ -68,45 +63,43 @@
   </header>
 
   <main class="relative z-10">
-   <!-- HERO -->
-<section id="inicio" class="relative overflow-hidden px-6 py-24 pb-16 pt-32 lg:px-8 lg:pb-24 lg:pt-40">
-  <div class="mx-auto grid max-w-4xl items-center gap-14">
-    <div class="w-full flex flex-col items-center text-center">
-      <div class="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-brand">
-        Software Factory
+    <section id="inicio" class="relative overflow-hidden px-6 py-24 pb-16 pt-32 lg:px-8 lg:pb-24 lg:pt-40">
+      <div class="mx-auto grid max-w-4xl items-center gap-14">
+        <div class="w-full flex flex-col items-center text-center">
+          <div class="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-brand">
+            Software Factory
+          </div>
+
+          <h1 class="mx-auto max-w-3xl text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-7xl">
+            Desarrollamos <span class="text-brand">software</span><br />
+            que impulsa<br />
+            negocios
+          </h1>
+
+          <p class="mx-auto mt-6 max-w-xl text-base leading-7 text-soft sm:text-lg">
+            Productos digitales, automatización, integraciones y soluciones a medida
+            para empresas que necesitan avanzar con más velocidad, orden y escalabilidad.
+          </p>
+
+          <div class="mt-10 flex flex-wrap justify-center gap-4">
+            <a href="#contacto" class="rounded-full bg-brand px-7 py-3 font-semibold text-black transition hover:shadow-glow">
+              Quiero una propuesta
+            </a>
+            <a href="#servicios" class="rounded-full border border-white/15 px-7 py-3 font-semibold text-white transition hover:border-brand hover:text-brand">
+              Ver servicios
+            </a>
+          </div>
+
+          <div class="mt-10 flex flex-wrap justify-center gap-3">
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">UX/UI</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">Apps a medida</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">Integraciones</span>
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">Testing</span>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <h1 class="mx-auto max-w-3xl text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-7xl">
-        Desarrollamos <span class="text-brand">software</span><br />
-        que impulsa<br />
-        negocios
-      </h1>
-
-      <p class="mx-auto mt-6 max-w-xl text-base leading-7 text-soft sm:text-lg">
-        Productos digitales, automatización, integraciones y soluciones a medida
-        para empresas que necesitan avanzar con más velocidad, orden y escalabilidad.
-      </p>
-
-      <div class="mt-10 flex flex-wrap justify-center gap-4">
-        <a href="#contacto" class="rounded-full bg-brand px-7 py-3 font-semibold text-black transition hover:shadow-glow">
-          Quiero una propuesta
-        </a>
-        <a href="#servicios" class="rounded-full border border-white/15 px-7 py-3 font-semibold text-white transition hover:border-brand hover:text-brand">
-          Ver servicios
-        </a>
-      </div>
-
-      <div class="mt-10 flex flex-wrap justify-center gap-3">
-        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">UX/UI</span>
-        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">Apps a medida</span>
-        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">Integraciones</span>
-        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">Testing</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-      <!-- servicios -->
     <section id="servicios" class="px-6 py-8 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div data-reveal="intro" class="max-w-2xl">
@@ -546,7 +539,6 @@
       </div>
     </section>
 
-    <!-- PROCESO -->
     <section id="proceso" class="px-6 py-8 lg:px-8">
       <div class="mx-auto max-w-7xl rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl lg:p-12">
         <div data-reveal="intro" class="max-w-2xl">
@@ -593,7 +585,6 @@
       </div>
     </section>
 
-    <!-- CLIENTES -->
     <section id="clientes" class="px-6 py-8 lg:px-8">
       <div class="mx-auto max-w-7xl rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl lg:p-12">
         <div data-reveal="intro" class="max-w-2xl">
@@ -663,7 +654,6 @@
       </div>
     </section>
 
-    <!-- NOSOTROS -->
     <section id="por-que-elegirnos" class="px-6 py-8 lg:px-8">
       <div class="mx-auto max-w-7xl">
         <div data-reveal="intro" class="max-w-2xl">
@@ -674,7 +664,6 @@
 
         <div class="mx-auto grid max-w-7xl gap-6 rounded-4xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl lg:grid-cols-[1.6fr_0.8fr] lg:p-12">
           <article data-reveal="intro" class="relative order-1 overflow-hidden p-0">
-            <div class="absolute right-0 top-0 h-48 w-48 rounded-full"></div>
             <div class="relative z-10">
               <h3 class="mt-0 text-3xl uppercase text-brand">En 2UP</h3>
               <p class="mt-4 leading-7 text-soft">
@@ -701,10 +690,9 @@
       </div>
     </section>
 
-    <!-- DIFERENCIAL -->
     <section class="px-6 py-8 lg:px-8">
       <div class="mx-auto max-w-7xl">
-          <h2 data-reveal="intro" class="mb-4 text-2xl font-black uppercase tracking-tight sm:text-2xl">Nuestros pilares son:</h2>
+        <h2 data-reveal="intro" class="mb-4 text-2xl font-black uppercase tracking-tight sm:text-2xl">Nuestros pilares son:</h2>
         <div data-reveal-list class="grid gap-6 lg:grid-cols-4">
           <article class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
             <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Rápido</p>
@@ -733,7 +721,6 @@
       </div>
     </section>
 
-    <!-- CONTACTO -->
     <section id="contacto" class="px-6 py-24 lg:px-8">
       <div class="shadow-glow-lg mx-auto max-w-7xl overflow-hidden rounded-2xl border border-brand/20 bg-linear-to-br from-brand/10 via-white/5 to-transparent p-8 lg:p-12">
         <div class="grid gap-10 lg:grid-cols-[1.1fr_.9fr]">
@@ -760,6 +747,7 @@
 
           <div class="rounded-[1.75rem] border border-white/10 bg-black/20 p-6 backdrop-blur-xl">
             <h3 class="text-lg font-bold">Dejanos tus datos</h3>
+            <!-- Al publicar, configurar el destino que recibirá las consultas. -->
             <form class="mt-6 space-y-4" action="#" method="post" novalidate>
               <label class="sr-only" for="contact-name">Nombre</label>
               <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Nombre" class="w-full rounded-2xl border border-white/10 bg-surface px-4 py-3 text-white outline-none transition focus:border-brand focus-visible:ring-2 focus-visible:ring-brand/60" />
@@ -782,7 +770,6 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="border-t border-white/10 px-6 py-8 lg:px-8">
       <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 md:flex-row md:items-center">
         <p class="text-sm text-white/45">© 2up - Software Factory</p>
@@ -795,16 +782,15 @@
     </footer>
   </main>
 
-<!-- BOTON SCROLL TOP -->
-<button
-  id="ast-scroll-top"
-  class="scroll-top-button"
-  type="button"
-  aria-label="Volver arriba"
->
-  <svg class="scroll-top-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M6 14L12 8L18 14" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
-  </svg>
-</button>
+  <button
+    id="ast-scroll-top"
+    class="scroll-top-button"
+    type="button"
+    aria-label="Volver arriba"
+  >
+    <svg class="scroll-top-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6 14L12 8L18 14" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </button>
 </body>
 </html>
