@@ -42,11 +42,13 @@ scrollTopButton.addEventListener("click", () => window.scrollTo({ top: 0 }));
 window.addEventListener("scroll", updateScrollButton, { passive: true });
 updateScrollButton();
 
-// Animate each block once, when its leading edge enters the reading area.
+// Keep the initial reading area visible; reveal later blocks a little inside the viewport.
 function initScrollReveals() {
   const motion = window.matchMedia("(prefers-reduced-motion: no-preference)");
   if (!motion.matches || !("IntersectionObserver" in window)) return;
 
+  const viewportHeight = document.documentElement.clientHeight;
+  const inset = Math.min(72, Math.round(viewportHeight * 0.12));
   const observer = new IntersectionObserver((entries) => {
     let previous;
     let delay = 0;
@@ -61,20 +63,23 @@ function initScrollReveals() {
         && Math.abs(previous.boundingClientRect.top - entry.boundingClientRect.top) < 2;
       delay = sameRow ? Math.min(delay + 45, 135) : 0;
       if (delay) item.style.setProperty("--reveal-delay", delay + "ms");
-      item.classList.add("is-entering");
+      item.classList.replace("reveal-pending", "is-entering");
       previous = entry;
     }
-  });
+  }, { rootMargin: "0px 0px -" + inset + "px 0px" });
 
   for (const item of document.querySelectorAll("[data-reveal], [data-reveal-list] > *")) {
-    if (item.getBoundingClientRect().top >= document.documentElement.clientHeight) {
+    if (item.getBoundingClientRect().top >= viewportHeight - inset) {
+      item.classList.add("reveal-pending");
       observer.observe(item);
     }
   }
 
   motion.addEventListener("change", () => {
     observer.disconnect();
-    document.querySelectorAll(".is-entering").forEach((item) => item.classList.remove("is-entering"));
+    for (const item of document.querySelectorAll(".reveal-pending, .is-entering")) {
+      item.classList.remove("reveal-pending", "is-entering");
+    }
   }, { once: true });
 }
 
