@@ -80,9 +80,10 @@ function initScrollReveals() {
       const progress = atBottom ? 1 : Math.max(0, Math.min(1, (height - top) / distance));
       if (progress === 1) {
         finish(item);
-      } else if (progress > 0 || item.style.getPropertyValue("--reveal-progress")) {
+      } else if (progress > 0) {
         const opacity = progress * progress * (3 - 2 * progress);
-        item.style.setProperty("--reveal-progress", opacity.toFixed(4));
+        const previous = Number(item.style.getPropertyValue("--reveal-progress"));
+        if (opacity > previous) item.style.setProperty("--reveal-progress", opacity.toFixed(4));
       }
     }
     if (!pending.size) stop();
