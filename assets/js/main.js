@@ -42,45 +42,67 @@ scrollTopButton.addEventListener("click", () => window.scrollTo({ top: 0 }));
 window.addEventListener("scroll", updateScrollButton, { passive: true });
 updateScrollButton();
 
-// Keep the initial reading area visible; reveal later blocks a little inside the viewport.
+// Fade each block across a short scroll distance, then leave it visible for rereading.
 function initScrollReveals() {
   const motion = window.matchMedia("(prefers-reduced-motion: no-preference)");
-  if (!motion.matches || !("IntersectionObserver" in window)) return;
+  if (!motion.matches) return;
 
-  const viewportHeight = document.documentElement.clientHeight;
-  const inset = Math.min(72, Math.round(viewportHeight * 0.12));
-  const observer = new IntersectionObserver((entries) => {
-    let previous;
-    let delay = 0;
+  const viewport = document.documentElement;
+  const items = document.querySelectorAll("[data-reveal], [data-reveal-list] > *");
+  const pending = new Set(Array.from(items).filter(
+    (item) => item.getBoundingClientRect().top >= viewport.clientHeight
+  ));
+  if (!pending.size) return;
 
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      const item = entry.target;
-      observer.unobserve(item);
+  const events = new AbortController();
+  let frame = 0;
 
-      // Only stagger siblings that enter together on the same grid row.
-      const sameRow = previous && previous.target.parentElement === item.parentElement
-        && Math.abs(previous.boundingClientRect.top - entry.boundingClientRect.top) < 2;
-      delay = sameRow ? Math.min(delay + 45, 135) : 0;
-      if (delay) item.style.setProperty("--reveal-delay", delay + "ms");
-      item.classList.replace("reveal-pending", "is-entering");
-      previous = entry;
-    }
-  }, { rootMargin: "0px 0px -" + inset + "px 0px" });
-
-  for (const item of document.querySelectorAll("[data-reveal], [data-reveal-list] > *")) {
-    if (item.getBoundingClientRect().top >= viewportHeight - inset) {
-      item.classList.add("reveal-pending");
-      observer.observe(item);
-    }
+  function finish(item) {
+    item.classList.remove("scroll-reveal");
+    item.style.removeProperty("--reveal-progress");
+    pending.delete(item);
   }
 
-  motion.addEventListener("change", () => {
-    observer.disconnect();
-    for (const item of document.querySelectorAll(".reveal-pending, .is-entering")) {
-      item.classList.remove("reveal-pending", "is-entering");
+  function stop() {
+    events.abort();
+    cancelAnimationFrame(frame);
+    pending.forEach(finish);
+  }
+
+  function update() {
+    frame = 0;
+    const height = viewport.clientHeight;
+    const distance = Math.min(180, height * 0.24);
+    const atBottom = Math.ceil(window.scrollY + height) >= viewport.scrollHeight;
+    // Read all positions before changing styles.
+    const positions = Array.from(pending, (item) => [item, item.getBoundingClientRect().top]);
+    for (const [item, top] of positions) {
+      const progress = atBottom ? 1 : Math.max(0, Math.min(1, (height - top) / distance));
+      if (progress === 1) {
+        finish(item);
+      } else if (progress > 0 || item.style.getPropertyValue("--reveal-progress")) {
+        const opacity = progress * progress * (3 - 2 * progress);
+        item.style.setProperty("--reveal-progress", opacity.toFixed(4));
+      }
     }
-  }, { once: true });
+    if (!pending.size) stop();
+  }
+
+  function scheduleUpdate() {
+    if (!frame) frame = requestAnimationFrame(update);
+  }
+
+  pending.forEach((item) => item.classList.add("scroll-reveal"));
+  const options = { passive: true, signal: events.signal };
+  window.addEventListener("scroll", scheduleUpdate, options);
+  window.addEventListener("resize", scheduleUpdate, options);
+  window.addEventListener("pageshow", scheduleUpdate, options);
+  document.addEventListener("focusin", (event) => {
+    const item = event.target.closest(".scroll-reveal");
+    if (item) finish(item);
+  }, options);
+  motion.addEventListener("change", stop, options);
+  update();
 }
 
 initScrollReveals();
