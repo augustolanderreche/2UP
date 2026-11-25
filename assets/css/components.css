@@ -228,17 +228,17 @@ svg.feature-icon {
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
-  .scroll-reveal {
+  .scroll-reveal:not(:focus-within) {
     opacity: var(--reveal-progress, 0);
     transition-property: none;
   }
 
   /* Move the contents so the measured top of the block stays stable. */
-  .scroll-reveal > :where(h2, h3, h4, p, div, svg) {
-    translate: 0 calc(-10px * (1 - var(--reveal-progress, 0)));
+  .scroll-reveal:not(:focus-within) > :where(h2, h3, h4, p, div, svg) {
+    translate: 0 var(--reveal-offset, 0px);
   }
 
-  [data-reveal-list="steps"] > .scroll-reveal > :first-child::after {
+  [data-reveal-list="steps"] > .scroll-reveal:not(:focus-within) > :first-child::after {
     transform: scaleX(var(--reveal-progress, 0));
   }
 }
