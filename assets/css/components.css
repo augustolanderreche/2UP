@@ -215,16 +215,39 @@ svg.feature-icon {
   }
 }
 
-[data-reveal-list="steps"] > * > :first-child::after {
+.process-steps {
+  --step-gap: 1.5rem;
+  display: grid;
+  gap: var(--step-gap);
+}
+
+.process-steps > li {
+  position: relative;
+  min-width: 0;
+}
+
+.process-steps > li:not(:last-child)::after {
   content: "";
-  display: inline-block;
-  vertical-align: middle;
-  width: 1.5rem;
-  height: 1px;
-  margin-inline-start: 0.55rem;
-  background: currentColor;
-  opacity: 0.5;
-  transform-origin: left;
+  position: absolute;
+  top: 100%;
+  left: 1.5rem;
+  width: 1px;
+  height: calc(var(--step-gap) + 2px);
+  background: var(--color-brand);
+  opacity: 0.45;
+}
+
+@media (min-width: 64rem) {
+  .process-steps {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .process-steps > li:not(:last-child)::after {
+    top: 1.875rem;
+    left: 100%;
+    width: calc(var(--step-gap) + 2px);
+    height: 1px;
+  }
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
@@ -233,7 +256,8 @@ svg.feature-icon {
     transition-property: none;
   }
 
-  [data-reveal-list="steps"] > .scroll-reveal > :first-child::after {
-    transform: scaleX(var(--reveal-progress, 0));
+  /* Move the contents so the measured top of the block stays stable. */
+  .scroll-reveal > :where(h2, h3, h4, p, div, svg) {
+    translate: 0 calc(7px * (1 - var(--reveal-progress, 0)));
   }
 }

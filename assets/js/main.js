@@ -72,7 +72,7 @@ function initScrollReveals() {
   function update() {
     frame = 0;
     const height = viewport.clientHeight;
-    const distance = Math.min(180, height * 0.24);
+    const distance = Math.min(215, height * 0.28);
     const atBottom = Math.ceil(window.scrollY + height) >= viewport.scrollHeight;
     // Read all positions before changing styles.
     const positions = Array.from(pending, (item) => [item, item.getBoundingClientRect().top]);
