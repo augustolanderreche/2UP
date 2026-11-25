@@ -16,6 +16,7 @@
 .clients-list {
   display: flex;
   gap: var(--clients-gap);
+  /* El espacio final mantiene la misma separación al pasar de una lista a la otra. */
   padding-inline-end: var(--clients-gap);
   flex-shrink: 0;
 }
@@ -149,13 +150,12 @@ svg.service-icon {
 
 .feature-row p {
   margin: 0.25rem 0 0 0;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 svg.service-icon,
 svg.vertical-card-icon,
 svg.feature-icon {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   stroke: #dbf700;
@@ -233,7 +233,7 @@ svg.feature-icon {
     transition-property: none;
   }
 
-  /* Move the contents so the measured top of the block stays stable. */
+  /* Desplazamos los hijos para que la posición medida del bloque permanezca estable. */
   .scroll-reveal:not(:focus-within) > :where(h2, h3, h4, p, div, svg) {
     translate: 0 var(--reveal-offset, 0px);
   }
