@@ -41,3 +41,41 @@ function updateScrollButton() {
 scrollTopButton.addEventListener("click", () => window.scrollTo({ top: 0 }));
 window.addEventListener("scroll", updateScrollButton, { passive: true });
 updateScrollButton();
+
+// Animate each block once, when its leading edge enters the reading area.
+function initScrollReveals() {
+  const motion = window.matchMedia("(prefers-reduced-motion: no-preference)");
+  if (!motion.matches || !("IntersectionObserver" in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    let previous;
+    let delay = 0;
+
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      const item = entry.target;
+      observer.unobserve(item);
+
+      // Only stagger siblings that enter together on the same grid row.
+      const sameRow = previous && previous.target.parentElement === item.parentElement
+        && Math.abs(previous.boundingClientRect.top - entry.boundingClientRect.top) < 2;
+      delay = sameRow ? Math.min(delay + 45, 135) : 0;
+      if (delay) item.style.setProperty("--reveal-delay", delay + "ms");
+      item.classList.add("is-entering");
+      previous = entry;
+    }
+  });
+
+  for (const item of document.querySelectorAll("[data-reveal], [data-reveal-list] > *")) {
+    if (item.getBoundingClientRect().top >= document.documentElement.clientHeight) {
+      observer.observe(item);
+    }
+  }
+
+  motion.addEventListener("change", () => {
+    observer.disconnect();
+    document.querySelectorAll(".is-entering").forEach((item) => item.classList.remove("is-entering"));
+  }, { once: true });
+}
+
+initScrollReveals();
