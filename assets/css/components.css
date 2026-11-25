@@ -229,17 +229,21 @@ svg.feature-icon {
 
 /* Entry motion is applied only after a block reaches the viewport. */
 @media screen and (prefers-reduced-motion: no-preference) {
+  .reveal-pending {
+    opacity: var(--reveal-opacity, 0.25);
+  }
+
   .is-entering {
-    animation: reading-entry 460ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms) backwards;
+    animation: reading-entry 620ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms) backwards;
   }
 
   [data-reveal="intro"] {
-    --reveal-distance: 7px;
+    --reveal-distance: 10px;
   }
 
   [data-reveal-list="details"] > * {
-    --reveal-distance: 4px;
-    --reveal-opacity: 0.65;
+    --reveal-distance: 7px;
+    --reveal-opacity: 0.5;
   }
 
   [data-reveal-list="steps"] > .is-entering > :first-child::after {
@@ -248,8 +252,8 @@ svg.feature-icon {
 
   @keyframes reading-entry {
     from {
-      opacity: var(--reveal-opacity, 0.35);
-      transform: translateY(var(--reveal-distance, 10px));
+      opacity: var(--reveal-opacity, 0.25);
+      transform: translateY(var(--reveal-distance, 14px));
     }
     to {
       opacity: 1;
